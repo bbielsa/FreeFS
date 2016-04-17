@@ -4,7 +4,7 @@ from connectors import FileStatus
 
 class DropboxConnector:
     def __init__(self, account):
-        self.client = Dropbox(account.accessToken)
+        self.client = Dropbox(account["access_token"])
 
     # Dropbox does not like the "/" path for some stupid reason...
     # "" refers to the root directory

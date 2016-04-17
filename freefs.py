@@ -1,6 +1,8 @@
 from sys import argv
 from fuse import FUSE, FuseOSError, Operations, LoggingMixIn
 from connectors import FileStatus
+from connectors.DropboxConnector import DropboxConnector
+from AccountLoader import AccountLoader
 
 
 class FreeFS(LoggingMixIn, Operations):
@@ -28,8 +30,19 @@ class FreeFS(LoggingMixIn, Operations):
             yield directory
 
 if __name__ == "__main__":
+    account_loader = AccountLoader("accounts.json")
+    account_loader.load_accounts()
+
+    print(account_loader.accounts[0])
+
+    dropbox_connector = DropboxConnector(account_loader.accounts[0])
+    print("Space allocated %s" % dropbox_connector.total_storage)
+    print("Space free %s" % dropbox_connector.free_storage)
+
+    """
     if len(argv) != 2:
         print("usage: %s <mount point>" % argv[0])
         exit(-1)
     else:
         fuse = FUSE(FreeFS(), argv[1], foreground=True)
+    """
