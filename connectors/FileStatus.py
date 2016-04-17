@@ -3,22 +3,22 @@ import time
 
 class FileStatus:
     def __init__(self):
-        self.group_id = None
-        self.user_id = None
+        self.group_id = 0
+        self.user_id = 0
 
-        self.mode = None
+        self.mode = 0
 
-        self.device = None
+        self.device = 0
 
-        self.inode = None
+        self.inode = 0
 
-        self.num_links = None
+        self.num_links = 0
 
-        self.access_time = None
-        self.modify_time = None
-        self.create_time = None
+        self.access_time = 0
+        self.modify_time = 0
+        self.create_time = 0
 
-        self.size = None
+        self.size = 0
 
     @property
     def st_gid(self):

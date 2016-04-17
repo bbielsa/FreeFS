@@ -1,10 +1,25 @@
 from sys import argv
 from fuse import FUSE, FuseOSError, Operations, LoggingMixIn
+from connectors import FileStatus
 
 
 class FreeFS(LoggingMixIn, Operations):
     def __init__(self):
+        self.connectors = []
         pass
+    """
+    def getattr(self, path, fh=None):
+        print("getattr called on %s" % path)
+        return FileStatus()
+    """
+
+    def calculate_total_storage(self):
+        total = 0
+
+        for connector in self.connectors:
+            total += connector.total_storage()
+
+        return total
 
     def readdir(self, path, fh):
         test = ["hello", "world"]
