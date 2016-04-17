@@ -1,5 +1,8 @@
-#Passwords and stuff
+# Passwords and stuff
 accounts.json
+
+# OSX garbage
+.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
