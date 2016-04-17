@@ -1,0 +1,6 @@
+[
+  {
+    service: "Dropbox",
+    token: "YOUR_ACCESS_TOKEN"
+  }
+]
