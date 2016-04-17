@@ -36,7 +36,7 @@ class DropboxConnector:
     @property
     def total_storage(self):
         space_usage = self.client.users_get_space_usage()
-        return space_usage.allocation.get_individual()
+        return space_usage.allocation.get_individual().allocated
 
     @property
     def free_storage(self):
